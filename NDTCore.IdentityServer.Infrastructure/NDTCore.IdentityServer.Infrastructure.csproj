@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NDTCore.IdentityServer.Application\NDTCore.IdentityServer.Application.csproj" />
+    <ProjectReference Include="..\NDTCore.IdentityServer.Contract\NDTCore.IdentityServer.Contract.csproj" />
+    <ProjectReference Include="..\NDTCore.IdentityServer.Domain\NDTCore.IdentityServer.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="EntityConfigurations\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
+</Project>

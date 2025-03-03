@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.3" />
+		<PackageReference Include="Serilog.AspNetCore" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\NDTCore.IdentityServer.Application\NDTCore.IdentityServer.Application.csproj" />
+		<ProjectReference Include="..\NDTCore.IdentityServer.Contract\NDTCore.IdentityServer.Contract.csproj" />
+		<ProjectReference Include="..\NDTCore.IdentityServer.Domain\NDTCore.IdentityServer.Domain.csproj" />
+		<ProjectReference Include="..\NDTCore.IdentityServer.Infrastructure\NDTCore.IdentityServer.Infrastructure.csproj" />
+	</ItemGroup>
+</Project>
