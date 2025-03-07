@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Configurations\" />
+    <Folder Include="Behaviors\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NDTCore.IdentityServer.Contract\NDTCore.IdentityServer.Contract.csproj" />
+    <ProjectReference Include="..\NDTCore.IdentityServer.Domain\NDTCore.IdentityServer.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

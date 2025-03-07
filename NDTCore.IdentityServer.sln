@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDTCore.IdentityServer", "NDTCore.IdentityServer\NDTCore.IdentityServer.csproj", "{7128BD0F-7D4F-404B-ABF2-22ABEE573489}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDTCore.IdentityServer.Infrastructure", "NDTCore.IdentityServer.Infrastructure\NDTCore.IdentityServer.Infrastructure.csproj", "{10A5D48B-59A8-400B-98CD-A20985E3C0D8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDTCore.IdentityServer.Application", "NDTCore.IdentityServer.Application\NDTCore.IdentityServer.Application.csproj", "{93657E53-B879-4A68-97E3-913272DE87D9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDTCore.IdentityServer.Domain", "NDTCore.IdentityServer.Domain\NDTCore.IdentityServer.Domain.csproj", "{9419E39C-2320-4D05-949E-399678CDC2AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDTCore.IdentityServer.Contract", "NDTCore.IdentityServer.Contract\NDTCore.IdentityServer.Contract.csproj", "{3D3D74D8-360D-42E7-8F84-F8936E2068D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDTCore.IdentityServer.Contract", "NDTCore.IdentityServer.Contract\NDTCore.IdentityServer.Contract.csproj", "{3D3D74D8-360D-42E7-8F84-F8936E2068D8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDTCore.IdentityServer.Web", "NDTCore.IdentityServer.Web\NDTCore.IdentityServer.Web.csproj", "{88C22CB0-D3F3-434C-ACA2-58C018BD439D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7128BD0F-7D4F-404B-ABF2-22ABEE573489}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7128BD0F-7D4F-404B-ABF2-22ABEE573489}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7128BD0F-7D4F-404B-ABF2-22ABEE573489}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7128BD0F-7D4F-404B-ABF2-22ABEE573489}.Release|Any CPU.Build.0 = Release|Any CPU
 		{10A5D48B-59A8-400B-98CD-A20985E3C0D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{10A5D48B-59A8-400B-98CD-A20985E3C0D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10A5D48B-59A8-400B-98CD-A20985E3C0D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{3D3D74D8-360D-42E7-8F84-F8936E2068D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D3D74D8-360D-42E7-8F84-F8936E2068D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D3D74D8-360D-42E7-8F84-F8936E2068D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88C22CB0-D3F3-434C-ACA2-58C018BD439D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88C22CB0-D3F3-434C-ACA2-58C018BD439D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88C22CB0-D3F3-434C-ACA2-58C018BD439D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88C22CB0-D3F3-434C-ACA2-58C018BD439D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
