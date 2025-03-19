@@ -35,10 +35,12 @@ echo -----------------------------------
 echo Starting EF Core Migrations...
 echo -----------------------------------
 
-:: Ensure Migrations folder exists
-if not exist "%MIGRATIONS_PATH%" (
-    mkdir "%MIGRATIONS_PATH%"
+:: Ensure Migrations folder exists, clearing if necessary
+if exist "%MIGRATIONS_PATH%" (
+    rd /s /q "%MIGRATIONS_PATH%"
 )
+
+mkdir "%MIGRATIONS_PATH%"
 
 :: Run EF Core migration commands
 echo Creating Initial Identity Database Migration...
