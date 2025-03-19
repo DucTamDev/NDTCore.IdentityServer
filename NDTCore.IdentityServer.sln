@@ -13,6 +13,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDTCore.IdentityServer.Cont
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDTCore.IdentityServer.Web", "NDTCore.IdentityServer.Web\NDTCore.IdentityServer.Web.csproj", "{88C22CB0-D3F3-434C-ACA2-58C018BD439D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NDTCore.IdentityServer.Collection", "NDTCore.IdentityServer.Collection", "{7B368BE8-A2B5-4704-B65C-C96F1CD7FC57}"
+	ProjectSection(SolutionItems) = preProject
+		Duende OAuth 2.0 & OpenID Connect API Collection.postman_collection.json = Duende OAuth 2.0 & OpenID Connect API Collection.postman_collection.json
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

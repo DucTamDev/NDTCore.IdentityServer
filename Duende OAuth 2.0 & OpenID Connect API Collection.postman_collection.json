@@ -1,0 +1,764 @@
+{
+	"info": {
+		"_postman_id": "439ea49d-ccd1-4c8e-8717-f0942dd58422",
+		"name": "Duende OAuth 2.0 & OpenID Connect API Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26088013",
+		"_collection_link": "https://gold-meteor-312594.postman.co/workspace/My-Workspace~f16d4f39-2bdf-43fc-8f6b-da8f4f222664/collection/26088013-439ea49d-ccd1-4c8e-8717-f0942dd58422?action=share&source=collection_link&creator=26088013"
+	},
+	"item": [
+		{
+			"name": "Discovery & Metadata",
+			"item": [
+				{
+					"name": "Discovery Endpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/.well-known/openid-configuration",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								".well-known",
+								"openid-configuration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "JWKs Endpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/.well-known/openid-configuration/jwks",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								".well-known",
+								"openid-configuration",
+								"jwks"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication & Authorization",
+			"item": [
+				{
+					"name": "Authorization Endpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/connect/authorize?client_id={{client_id}}&response_type=code&redirect_uri={{redirect_uri}}&scope=openid profile email&state={{state}}&nonce={{nonce}}&code_challenge={{code_challenge}}&code_challenge_method=S256",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "{{client_id}}"
+								},
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{redirect_uri}}"
+								},
+								{
+									"key": "scope",
+									"value": "openid profile email"
+								},
+								{
+									"key": "state",
+									"value": "{{state}}"
+								},
+								{
+									"key": "nonce",
+									"value": "{{nonce}}"
+								},
+								{
+									"key": "code_challenge",
+									"value": "{{code_challenge}}"
+								},
+								{
+									"key": "code_challenge_method",
+									"value": "S256"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token Endpoint (Authorization Code)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "authorization_code"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}"
+								},
+								{
+									"key": "code",
+									"value": "{{auth_code}}"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{redirect_uri}}"
+								},
+								{
+									"key": "code_verifier",
+									"value": "{{code_verifier}}"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/connect/token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token Endpoint (Client Credentials)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}"
+								},
+								{
+									"key": "scope",
+									"value": "{{scope}}"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/connect/token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token Endpoint (Password Grant)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "password"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}"
+								},
+								{
+									"key": "username",
+									"value": "{{username}}"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}"
+								},
+								{
+									"key": "scope",
+									"value": "{{scope}}"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/connect/token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token Endpoint",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token"
+								},
+								{
+									"key": "client_id",
+									"value": "{{client_id}}"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}"
+								},
+								{
+									"key": "refresh_token",
+									"value": "{{refresh_token}}"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/connect/token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User & Session Management",
+			"item": [
+				{
+					"name": "UserInfo Endpoint",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/connect/userinfo",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"userinfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout Endpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/connect/endsession?id_token_hint={{id_token_hint}}&post_logout_redirect_uri={{post_logout_redirect_uri}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"endsession"
+							],
+							"query": [
+								{
+									"key": "id_token_hint",
+									"value": "{{id_token_hint}}"
+								},
+								{
+									"key": "post_logout_redirect_uri",
+									"value": "{{post_logout_redirect_uri}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Session Endpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/connect/checksession",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"checksession"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "End Session Endpoint",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/connect/endsession",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"endsession"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Token Management",
+			"item": [
+				{
+					"name": "Introspection Endpoint",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "Authorization",
+								"value": "Basic {{client_id}}:{{client_secret}}"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "token_type_hint",
+									"value": "access_token"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/connect/introspect",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"introspect"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Revocation Endpoint",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "token_type_hint",
+									"value": "refresh_token"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/connect/revocation",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"revocation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check ID Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id_token\": \"{{id_token}}\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/connect/token/validate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"token",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Device Authorization",
+			"item": [
+				{
+					"name": "Device Authorization Endpoint",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{client_id}}"
+								},
+								{
+									"key": "scope",
+									"value": "openid profile email"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/connect/deviceauthorization",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"deviceauthorization"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PKCE (Proof Key for Code Exchange)",
+			"item": [
+				{
+					"name": "PKCE Authorization Request",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/connect/authorize?client_id={{client_id}}&response_type=code&redirect_uri={{redirect_uri}}&scope=openid profile email&state={{state}}&nonce={{nonce}}&code_challenge={{code_challenge}}&code_challenge_method=S256",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"connect",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "{{client_id}}"
+								},
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{redirect_uri}}"
+								},
+								{
+									"key": "scope",
+									"value": "openid profile email"
+								},
+								{
+									"key": "state",
+									"value": "{{state}}"
+								},
+								{
+									"key": "nonce",
+									"value": "{{nonce}}"
+								},
+								{
+									"key": "code_challenge",
+									"value": "{{code_challenge}}"
+								},
+								{
+									"key": "code_challenge_method",
+									"value": "S256"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Two-Factor Authentication",
+			"item": [
+				{
+					"name": "Request SMS Code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"phone\": \"{{phone}}\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/2fa/sms",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"2fa",
+								"sms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Request Email Code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\": \"{{email}}\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/2fa/email",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"2fa",
+								"email"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify 2FA Code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\": \"{{code}}\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/2fa/verify",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"2fa",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Enable 2FA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/2fa/enable",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"2fa",
+								"enable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Disable 2FA",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/2fa/disable",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"2fa",
+								"disable"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Backup Codes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/2fa/backup/generate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"2fa",
+								"backup",
+								"generate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate Backup Code",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"code\": \"{{backup_code}}\"}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/2fa/backup/validate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"2fa",
+								"backup",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
